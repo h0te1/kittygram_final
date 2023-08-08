@@ -12,25 +12,21 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    build: ./backend/
+    image: h0te1/kittygram_backend
     volumes:
-   # Нам нужно собрать статику, а потом скопировать ее в папку
-   # контейнера /backend_static руками.
-#    docker compose exec backend cp -r /app/collected_static/. /backend_static/static/
      - static:/backend_static
-     - media:/medi
+     - media:/media
     env_file: .env
 
   frontend:
     env_file: .env
-    build: ./frontend/
+    image: h0te1/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
-     # Собранный фронт лежит в папке контейнера /frontend_static
       - static:/frontend_static
 
   gateway:
-    build: ./nginx/
+    image: h0te1/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
