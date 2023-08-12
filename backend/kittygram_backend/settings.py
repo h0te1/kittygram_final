@@ -1,7 +1,7 @@
-import os
-
 from pathlib import Path
 from dotenv import load_dotenv
+
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,12 +59,12 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.getenv('POSTGRES_DB', 'kittygram'),
-       'USER': os.getenv('POSTGRES_USER', 'kittygram_user'),
-       'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'kittygram_password'),
-       'HOST': os.getenv('DB_HOST', 'db'),
-       'PORT': os.getenv('DB_PORT', 5432)
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'kittygram'),
+        'USER': os.getenv('POSTGRES_USER', 'kittygram_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'kittygram_password'),
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': os.getenv('DB_PORT', 5432)
     }
 }
 
