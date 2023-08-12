@@ -9,6 +9,7 @@ from .models import Achievement, AchievementCat, Cat
 
 
 class Hex2NameColor(serializers.Field):
+
     def to_representation(self, value):
         return value
 
